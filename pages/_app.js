@@ -69,7 +69,7 @@ export default function MyApp({ Component, pageProps }) {
                     </WishlistContextProvider>
                   </CartContextProvider>
                 </CurrencyContextProvider>
-                <ThemeSettings />
+                {/* <ThemeSettings /> */}
               </CompareContextProvider>
             </SettingProvider>
             <ToastContainer />

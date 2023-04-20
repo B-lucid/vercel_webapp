@@ -21,7 +21,7 @@ import CelebritySlider from "../../../components/common/CelebritySlider";
 
 const Shoes = () => {
     useEffect(() => {
-        document.documentElement.style.setProperty('--theme-deafult', '#f7869b');
+        document.documentElement.style.setProperty('--theme-deafult', '#FF4B55');
     })
     return (
     <>
@@ -30,7 +30,7 @@ const Shoes = () => {
             <link rel="icon" type="image/x-icon" href={'/assets/images/favicon/10.png'} />
         </Helmet>
         <ModalComponent />
-        <HeaderTwo logoName={'kocartlogo.jpg'} direction="bottom" topClass="top-header top-header-dark" />
+        <HeaderTwo logoName={'kocartlogo.jpeg'} direction="bottom" topClass="top-header top-header-dark" />
         <Banner />
         <Category />
         <CelebritySlider/>
@@ -51,7 +51,7 @@ const Shoes = () => {
         <div className="section-b-space">
             <LogoBlock />
         </div>
-        <FooterFive logoName={'kocartlogo.jpg'}  layoutClass="black-subfooter" />
+        <FooterFive logoName={'kocartlogo.jpeg'}  layoutClass="black-subfooter" />
     </>
     )
 }

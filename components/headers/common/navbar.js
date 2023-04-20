@@ -131,9 +131,9 @@ const     NavBar = () => {
     <div>
       <div className="main-navbar">
         <div id="mainnav">
-          <div className="toggle-nav" onClick={openNav.bind(this)}>
+          {/* <div className="toggle-nav" onClick={openNav.bind(this)}>
             <i className="fa fa-bars sidebar-bar"></i>
-          </div>
+          </div> */}
           <ul className="nav-menu" style={navClose}>
             <li className="back-btn" onClick={closeNav.bind(this)}>
               <div className="mobile-back text-end">

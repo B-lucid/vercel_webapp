@@ -13,7 +13,7 @@
     h3{
         margin-left:1.5rem ;
         a{
-           color: #f7869b;
+           color: #FF4B55;
         }
     }
     h4{
@@ -21,13 +21,35 @@
         padding: 1rem;
     }
 }
-
-@media all and (max-width:480px){
+@media all and (max-width: 379px) {
     .celebrity-container{
         margin-top: 2rem;
     }
     .celebrity-slider{
-        margin: 0 auto;
+        img{
+            width: 110px; /* adjust to your desired size */
+            height: 150px; /* adjust to your desired size */
+            object-fit: cover;
+            margin: 0 auto; 
+        }
+        h3{
+            margin-left:1rem ;
+            font-size: .7rem;
+        }
+        h4{
+            text-align: center;
+            padding: .5rem;
+            font-size: 14px;
+        }
+    }
+
+
+}
+@media all and (min-width: 380px)and (max-width:480px){
+    .celebrity-container{
+        margin-top: 2rem;
+    }
+    .celebrity-slider{
         img{
             width: 120px; /* adjust to your desired size */
             height: 160px; /* adjust to your desired size */
@@ -46,9 +68,8 @@
     }
 
 }
-@media all and (min-width: 480px) and (max-width: 600px){
+@media all and (min-width: 481px) and (max-width: 600px){
     .celebrity-slider{
-        margin: 0 auto;
         img{
             width: 150px; /* adjust to your desired size */
             height: 200px; /* adjust to your desired size */
