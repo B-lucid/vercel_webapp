@@ -1,0 +1,90 @@
+.celebrity-container{
+    margin-top: 5rem;
+}
+.celebrity-slider{
+    max-width: 1200px;
+    margin: 0 auto;
+    img{
+        width: 270px; /* adjust to your desired size */
+        height: 300px; /* adjust to your desired size */
+        object-fit: cover;
+        margin: 0 auto; 
+    }
+    h3{
+        margin-left:1.5rem ;
+        a{
+           color: #f7869b;
+        }
+    }
+    h4{
+        text-align: center;
+        padding: 1rem;
+    }
+}
+
+@media all and (max-width:480px){
+    .celebrity-container{
+        margin-top: 2rem;
+    }
+    .celebrity-slider{
+        margin: 0 auto;
+        img{
+            width: 120px; /* adjust to your desired size */
+            height: 160px; /* adjust to your desired size */
+            object-fit: cover;
+            margin: 0 auto; 
+        }
+        h3{
+            margin-left:1rem ;
+            font-size: .7rem;
+        }
+        h4{
+            text-align: center;
+            padding: .5rem;
+            font-size: 14px;
+        }
+    }
+
+}
+@media all and (min-width: 480px) and (max-width: 600px){
+    .celebrity-slider{
+        margin: 0 auto;
+        img{
+            width: 150px; /* adjust to your desired size */
+            height: 200px; /* adjust to your desired size */
+            object-fit: cover;
+           
+            margin: 0 auto; 
+        }
+        h3{
+            margin-left:1rem ;
+            font-size: .8rem;
+        }
+        h4{
+            text-align: center;
+            padding: .7rem;
+            font-size: 15px;
+        }
+    }
+
+}
+@media all and (min-width: 601px) and (max-width: 768px){
+    .celebrity-slider{
+        img{
+            width: 200px; /* adjust to your desired size */
+        height: 250px; /* adjust to your desired size */
+        object-fit: cover;
+        }
+        h3{
+            margin-left:1.2rem ;
+            font-size: .9rem;
+          
+        }
+        h4{
+            text-align: center;
+            padding: .7rem;
+            font-size: 16px;
+        }
+    }
+
+}
