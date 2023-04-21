@@ -25,7 +25,7 @@ const Instagram = ({ type }) => {
     <Container>
       <Row>
         <Col md="12">
-          <h2 className="title-borderless">#instagram</h2>
+          <h2 className="title-borderless">#partners</h2>
           {/* <img  src="./assets/images/icon/kocartlogo.jpg"/> */}
           <Slider {...Slider5} className="slide-5 no-arrow slick-instagram">
             {data &&

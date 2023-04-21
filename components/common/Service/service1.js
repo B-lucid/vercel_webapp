@@ -10,8 +10,8 @@ import MasterServiceContent from "./MasterServiceConternt";
 const Data = [
   {
     link: svgFreeShipping,
-    title: "free shipping",
-    service: "free shipping world wide",
+    title: "World Wide Shipping",
+    service: "from a reliable shipping provider",
   },
   {
     link: svgservice,
@@ -20,8 +20,8 @@ const Data = [
   },
   {
     link: svgoffer,
-    title: "festival offer",
-    service: "new online special festival offer",
+    title: " Offers & Discounts ",
+    service: "Unleash the ultimate shopping experience with year-round deals and promos",
   },
 ];
 

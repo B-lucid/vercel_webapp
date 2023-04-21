@@ -72,11 +72,11 @@ const FooterFive = ({ layoutClass, logoName }) => {
                               </li>
                               <li>
                                 <a
-                                  href="https://plus.google.com"
+                                  href="https://youtube.com"
                                   target="_blank"
                                 >
                                   <i
-                                    className="fa fa-google-plus"
+                                    className="fa fa-youtube-play"
                                     aria-hidden="true"
                                   ></i>
                                 </a>
@@ -164,13 +164,13 @@ const FooterFive = ({ layoutClass, logoName }) => {
                         <div className="footer-contant">
                           <ul className="contact-details">
                             <li>
-                              Multikart Demo Store, Demo store India 345-659
+                             ERES International Trade,LLC
                             </li>
-                            <li>Call Us: 123-456-7898</li>
+                            <li>Call Us: 123-456-789</li>
                             <li>
-                              Email Us: <a href="#">Support@Fiot.com</a>
+                              Email Us: <a href="#">Support@Kocart.com</a>
                             </li>
-                            <li>Fax: 123456</li>
+                            {/* <li>Fax: 123456</li> */}
                           </ul>
                         </div>
                       </Collapse>
@@ -198,7 +198,7 @@ const FooterFive = ({ layoutClass, logoName }) => {
                           setIsOpen(!isOpen);
                         }}
                       >
-                        my account
+                       Learn More
                         <span className="according-menu"></span>
                       </h4>
                     </div>
@@ -208,38 +208,35 @@ const FooterFive = ({ layoutClass, logoName }) => {
                       <div className="footer-contant">
                         <ul>
                           <li>
-                            <a href="#">mens</a>
-                          </li>
-                          <li>
-                            <a href="#">womens</a>
-                          </li>
-                          <li>
-                            <a href="#">clothing</a>
-                          </li>
-                          <li>
-                            <a href="#">accessories</a>
-                          </li>
-                          <li>
-                            <a href="#">featured</a>
-                          </li>
-                          <li>
-                            <a href="#">service</a>
-                          </li>
-                          <li>
-                            <a href="#">cart</a>
-                          </li>
-                          <li>
-                            <a href="#">my order</a>
-                          </li>
-                          <li>
                             <a href="#">FAQ</a>
                           </li>
                           <li>
+                            <a href="#">Terms & Conditions</a>
+                          </li>
+                          <li>
+                            <a href="#">Privacy Policy</a>
+                          </li>
+                          <li>
+                            <a href="#">Shipping Policy</a>
+                          </li>
+                          <li>
+                            <a href="#">Return & Refund Policy</a>
+                          </li>
+                          {/* <li>
+                            <a href="#">cart</a>
+                          </li> */}
+                          {/* <li>
+                            <a href="#">my order</a>
+                          </li> */}
+                          {/* <li>
+                            <a href="#">FAQ</a>
+                          </li> */}
+                          {/* <li>
                             <a href="#">new product</a>
                           </li>
                           <li>
                             <a href="#">featured product</a>
-                          </li>
+                          </li> */}
                         </ul>
                       </div>
                     </Collapse>
