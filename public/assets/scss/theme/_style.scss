@@ -14287,3 +14287,9 @@ video#background-video {
   width: auto;
   height: auto;
 }
+//css for the svg of footer 
+.effect-tiktok{
+  &:hover {
+      fill:#FF4B55;
+    }
+}
