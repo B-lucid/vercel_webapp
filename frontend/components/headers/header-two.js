@@ -44,7 +44,6 @@ const HeaderTwo = ({ logoName, headerClass, topClass, direction }) => {
                   <div className="navbar">
                     <a href={null} onClick={openNav}>
                       <div className="bar-style">
-                        {" "}
                         <i
                           className="fa fa-bars sidebar-bar"
                           aria-hidden="true"

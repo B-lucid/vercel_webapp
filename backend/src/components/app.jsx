@@ -4,42 +4,47 @@ import RightSidebar from "./common/right-sidebar";
 import Footer from "./common/footer";
 import Header from "./common/header_components/header";
 import { Outlet } from "react-router-dom";
+import { useRolesContext } from "../providers/RolesProvider";
 
 const App = (props) => {
-	const initialState = {
-		ltr: true,
-		divName: "RTL",
-	};
+  const { isAdmin } = useRolesContext();
 
-	const [side, setSide] = useState(initialState);
+  const initialState = {
+    ltr: true,
+    divName: "RTL",
+  };
 
-	const ChangeRtl = (divName) => {
-		if (divName === "RTL") {
-			document.body.classList.add("rtl");
-			setSide({ divName: "LTR" });
-		} else {
-			document.body.classList.remove("rtl");
-			setSide({ divName: "RTL" });
-		}
-	};
-	return (
-		<div>
-			<div className="page-wrapper">
-				<Header />
-				<div className="page-body-wrapper">
-					<Sidebar />
-					<RightSidebar />
-					<div className="page-body"><Outlet/></div>
-					<Footer />
-				</div>
-			</div>
-			<div
-				className="btn-light custom-theme"
-				onClick={() => ChangeRtl(side.divName)}
-			>
-				{side.divName}
-			</div>
-		</div>
-	);
+  const [side, setSide] = useState(initialState);
+
+  const ChangeRtl = (divName) => {
+    if (divName === "RTL") {
+      document.body.classList.add("rtl");
+      setSide({ divName: "LTR" });
+    } else {
+      document.body.classList.remove("rtl");
+      setSide({ divName: "RTL" });
+    }
+  };
+  return (
+    <div>
+      <div className="page-wrapper">
+        <Header />
+        <div className="page-body-wrapper">
+          <Sidebar />
+          {isAdmin && <RightSidebar />}
+          <div className="page-body">
+            <Outlet />
+          </div>
+          <Footer />
+        </div>
+      </div>
+      <div
+        className="btn-light custom-theme"
+        onClick={() => ChangeRtl(side.divName)}
+      >
+        {side.divName}
+      </div>
+    </div>
+  );
 };
 export default App;

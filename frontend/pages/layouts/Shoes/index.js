@@ -17,10 +17,11 @@ import FooterFive from '../../../components/footers/footer-five';
 import { Product4 } from '../../../services/script';
 import ModalComponent from '../../../components/common/Modal';
 import Helmet from 'react-helmet';
+import CelebritySlider from "../../../components/common/CelebritySlider";
 
 const Shoes = () => {
     useEffect(() => {
-        document.documentElement.style.setProperty('--theme-deafult', '#f7869b');
+        document.documentElement.style.setProperty('--theme-deafult', '#FF4B55');
     })
     return (
     <>
@@ -29,9 +30,10 @@ const Shoes = () => {
             <link rel="icon" type="image/x-icon" href={'/assets/images/favicon/10.png'} />
         </Helmet>
         <ModalComponent />
-        <HeaderTwo logoName={'logo/6.png'} direction="bottom" topClass="top-header top-header-dark" />
+        <HeaderTwo logoName={'kocartlogo.jpeg'} direction="bottom" topClass="top-header top-header-dark" />
         <Banner />
         <Category />
+        <CelebritySlider/>
         <AboutUs />
         <Collections />
         <SpecialProducts type="shoes" line={true} innerClass="title3" inner="title-inner3" title="our Collections" subtitle="special offer" designClass="section-b-space p-t-0 ratio_asos" productSlider={Product4} noSlider="true" cartClass="cart-info" />
@@ -49,7 +51,7 @@ const Shoes = () => {
         <div className="section-b-space">
             <LogoBlock />
         </div>
-        <FooterFive logoName={'logo/6.png'}  layoutClass="black-subfooter" />
+        <FooterFive logoName={'kocartlogo.jpeg'}  layoutClass="black-subfooter" />
     </>
     )
 }

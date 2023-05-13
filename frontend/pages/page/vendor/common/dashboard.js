@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useRouter } from "next/router";
 import Link from "next/link";
 import {
   Container,
@@ -35,20 +34,24 @@ import dynamic from "next/dynamic";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 import { apexPieChart, lineChart1 } from "../../../../data/vendorData";
+import Orders from "./orders";
+import Products from "./products";
+import ProfileInfo from "./profile-info";
+import Settings from "./settings";
 
 const SummaryData = [
   {
-    img: '/assets/images/icon/dashboard/order.png',
+    img: "/assets/images/icon/dashboard/order.png",
     title: "25",
     desc: "Total Products",
   },
   {
-    img: '/assets/images/icon/dashboard/sale.png',
+    img: "/assets/images/icon/dashboard/sale.png",
     title: "12500",
     desc: "Total Sales",
   },
   {
-    img: '/assets/images/icon/dashboard/homework.png',
+    img: "/assets/images/icon/dashboard/homework.png",
     title: "50",
     desc: "Order Pending",
   },
@@ -132,25 +135,6 @@ const TrendingProduct = ({ img, productName, price, sales }) => {
   );
 };
 
-const AllProduct = ({ img, productName, category, price, stock, sales }) => {
-  return (
-    <tr>
-      <th scope="row">
-        <Media src={img} className="blur-up lazyloaded" />
-      </th>
-      <td>{productName}e</td>
-      <td>{category}</td>
-      <td>{price}</td>
-      <td>{stock}</td>
-      <td>{sales}</td>
-      <td>
-        <i className="fa fa-pencil-square-o me-1" aria-hidden="true"></i>
-        <i className="fa fa-trash-o ms-1" aria-hidden="true"></i>
-      </td>
-    </tr>
-  );
-};
-
 const OrderData = [
   {
     id: "#125021",
@@ -218,17 +202,6 @@ const RecentOrder = ({ id, productDetails, status }) => {
   );
 };
 
-const AllOrder = ({ id, productDetails, status, price }) => {
-  return (
-    <tr>
-      <th scope="row">{id}</th>
-      <td>{productDetails}</td>
-      <td>{status}</td>
-      <td>{price}</td>
-    </tr>
-  );
-};
-
 const ProfileData = [
   { title: "Company Name", detail: "Fashion Store" },
   { title: "Email Address", detail: "Mark.Enderess@Mail.Com" },
@@ -241,23 +214,7 @@ const ProfileData = [
   { title: "Zip", detail: "60515" },
 ];
 
-const ProfileDetail = ({ title, detail }) => {
-  return (
-    <li>
-      <div className="details">
-        <div className="left">
-          <h6>{title}</h6>
-        </div>
-        <div className="right">
-          <h6>{detail}</h6>
-        </div>
-      </div>
-    </li>
-  );
-};
-
 const Dashboard = () => {
-  const router = useRouter();
   const [activeTab, setActiveTab] = useState("1");
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
@@ -444,320 +401,28 @@ const Dashboard = () => {
                 <TabPane tabId="2">
                   <Row>
                     <Col sm="12">
-                      <Card className="dashboard-table mt-0">
-                        <CardBody>
-                          <div className="top-sec">
-                            <h3>all products</h3>
-                            <a href="#" className="btn btn-sm btn-solid">
-                              add product
-                            </a>
-                          </div>
-                          <table className="table-responsive-md table mb-0">
-                            <thead>
-                              <tr>
-                                <th scope="col">image</th>
-                                <th scope="col">product name</th>
-                                <th scope="col">category</th>
-                                <th scope="col">price</th>
-                                <th scope="col">stock</th>
-                                <th scope="col">sales</th>
-                                <th scope="col">edit/delete</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              {ProductData.map((data, i) => {
-                                return (
-                                  <AllProduct
-                                    key={i}
-                                    img={data.img.src}
-                                    productName={data.productName}
-                                    category={data.category}
-                                    stock={data.stock}
-                                    price={data.price}
-                                    sales={data.sales}
-                                  />
-                                );
-                              })}
-                            </tbody>
-                          </table>
-                        </CardBody>
-                      </Card>
+                      <Products ProductData={ProductData} />
                     </Col>
                   </Row>
                 </TabPane>
                 <TabPane tabId="3">
                   <Row>
                     <Col sm="12">
-                      <Card className="dashboard-table mt-0">
-                        <CardBody>
-                          <div className="top-sec">
-                            <h3>orders</h3>
-                            <a href="#" className="btn btn-sm btn-solid">
-                              add product
-                            </a>
-                          </div>
-                          <table className="table table-responsive-sm mb-0">
-                            <thead>
-                              <tr>
-                                <th scope="col">order id</th>
-                                <th scope="col">product details</th>
-                                <th scope="col">status</th>
-                                <th scope="col">price</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              {OrderData.map((data, i) => {
-                                return (
-                                  <AllOrder
-                                    key={i}
-                                    id={data.id}
-                                    productDetails={data.productDetails}
-                                    status={data.status}
-                                    price={data.price}
-                                  />
-                                );
-                              })}
-                            </tbody>
-                          </table>
-                        </CardBody>
-                      </Card>
+                      <Orders OrderData={OrderData} />
                     </Col>
                   </Row>
                 </TabPane>
                 <TabPane tabId="4">
                   <Row>
                     <Col sm="12">
-                      <Card className="mt-0">
-                        <CardBody>
-                          <div className="dashboard-box">
-                            <div className="dashboard-title">
-                              <h4>profile</h4>
-                              <span
-                                data-toggle="modal"
-                                data-target="#edit-profile"
-                              >
-                                edit
-                              </span>
-                            </div>
-                            <div className="dashboard-detail">
-                              <ul>
-                                {ProfileData.map((data, i) => {
-                                  return (
-                                    <ProfileDetail
-                                      key={i}
-                                      title={data.title}
-                                      detail={data.detail}
-                                    />
-                                  );
-                                })}
-                              </ul>
-                            </div>
-                          </div>
-                        </CardBody>
-                      </Card>
+                      <ProfileInfo ProfileData={ProfileData} />
                     </Col>
                   </Row>
                 </TabPane>
                 <TabPane tabId="5">
                   <Row>
                     <Col sm="12">
-                      <Card className="mt-0">
-                        <CardBody>
-                          <div className="dashboard-box">
-                            <div className="dashboard-title">
-                              <h4>settings</h4>
-                            </div>
-                            <div className="dashboard-detail">
-                              <div className="account-setting">
-                                <h5>Notifications</h5>
-                                <Row>
-                                  <Col>
-                                    <div className="form-check">
-                                      <Input
-                                        className="radio_animated form-check-input"
-                                        type="radio"
-                                        name="exampleRadios"
-                                        id="exampleRadios1"
-                                        value="option1"
-                                        defaultChecked
-                                      />
-                                      <Label
-                                        className="form-check-label"
-                                        for="exampleRadios1"
-                                      >
-                                        Allow Desktop Notifications
-                                      </Label>
-                                    </div>
-                                    <div className="form-check">
-                                      <Input
-                                        className="radio_animated form-check-input"
-                                        type="radio"
-                                        name="exampleRadios"
-                                        id="exampleRadios2"
-                                        value="option2"
-                                      />
-                                      <Label
-                                        className="form-check-label"
-                                        for="exampleRadios2"
-                                      >
-                                        Enable Notifications
-                                      </Label>
-                                    </div>
-                                    <div className="form-check">
-                                      <Input
-                                        className="radio_animated form-check-input"
-                                        type="radio"
-                                        name="exampleRadios"
-                                        id="exampleRadios3"
-                                        value="option3"
-                                      />
-                                      <Label
-                                        className="form-check-label"
-                                        for="exampleRadios3"
-                                      >
-                                        Get notification for my own activity
-                                      </Label>
-                                    </div>
-                                    <div className="form-check">
-                                      <Input
-                                        className="radio_animated form-check-input"
-                                        type="radio"
-                                        name="exampleRadios"
-                                        id="exampleRadios4"
-                                        value="option4"
-                                      />
-                                      <Label
-                                        className="form-check-label"
-                                        for="exampleRadios4"
-                                      >
-                                        DND
-                                      </Label>
-                                    </div>
-                                  </Col>
-                                </Row>
-                              </div>
-                              <div className="account-setting">
-                                <h5>deactivate account</h5>
-                                <Row>
-                                  <Col>
-                                    <div className="form-check">
-                                      <Input
-                                        className="radio_animated form-check-input"
-                                        type="radio"
-                                        name="exampleRadios1"
-                                        id="exampleRadios4"
-                                        value="option4"
-                                        defaultChecked
-                                      />
-                                      <Label
-                                        className="form-check-label"
-                                        for="exampleRadios4"
-                                      >
-                                        I have a privacy concern
-                                      </Label>
-                                    </div>
-                                    <div className="form-check">
-                                      <Input
-                                        className="radio_animated form-check-input"
-                                        type="radio"
-                                        name="exampleRadios1"
-                                        id="exampleRadios5"
-                                        value="option5"
-                                      />
-                                      <Label
-                                        className="form-check-label"
-                                        for="exampleRadios5"
-                                      >
-                                        This is temporary
-                                      </Label>
-                                    </div>
-                                    <div className="form-check">
-                                      <Input
-                                        className="radio_animated form-check-input"
-                                        type="radio"
-                                        name="exampleRadios1"
-                                        id="exampleRadios6"
-                                        value="option6"
-                                      />
-                                      <Label
-                                        className="form-check-label"
-                                        for="exampleRadios6"
-                                      >
-                                        other
-                                      </Label>
-                                    </div>
-                                    <button
-                                      type="button"
-                                      className="btn btn-solid btn-xs"
-                                    >
-                                      Deactivate Account
-                                    </button>
-                                  </Col>
-                                </Row>
-                              </div>
-                              <div className="account-setting">
-                                <h5>Delete account</h5>
-                                <Row>
-                                  <Col>
-                                    <div className="form-check">
-                                      <Input
-                                        className="radio_animated form-check-input"
-                                        type="radio"
-                                        name="exampleRadios3"
-                                        id="exampleRadios7"
-                                        value="option7"
-                                        defaultChecked
-                                      />
-                                      <Label
-                                        className="form-check-label"
-                                        for="exampleRadios7"
-                                      >
-                                        No longer usable
-                                      </Label>
-                                    </div>
-                                    <div className="form-check">
-                                      <Input
-                                        className="radio_animated form-check-input"
-                                        type="radio"
-                                        name="exampleRadios3"
-                                        id="exampleRadios8"
-                                        value="option8"
-                                      />
-                                      <Label
-                                        className="form-check-label"
-                                        for="exampleRadios8"
-                                      >
-                                        Want to switch on other account
-                                      </Label>
-                                    </div>
-                                    <div className="form-check">
-                                      <Input
-                                        className="radio_animated form-check-input"
-                                        type="radio"
-                                        name="exampleRadios3"
-                                        id="exampleRadios9"
-                                        value="option9"
-                                      />
-                                      <Label
-                                        className="form-check-label"
-                                        for="exampleRadios9"
-                                      >
-                                        other
-                                      </Label>
-                                    </div>
-                                    <button
-                                      type="button"
-                                      className="btn btn-solid btn-xs"
-                                    >
-                                      Delete Account
-                                    </button>
-                                  </Col>
-                                </Row>
-                              </div>
-                            </div>
-                          </div>
-                        </CardBody>
-                      </Card>
+                      <Settings />
                     </Col>
                   </Row>
                 </TabPane>

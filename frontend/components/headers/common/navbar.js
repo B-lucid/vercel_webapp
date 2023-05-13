@@ -5,7 +5,7 @@ import { Container, Row } from "reactstrap";
 import { useTranslation } from "react-i18next";
 import { useRouter } from "next/router";
 
-const NavBar = () => {
+const     NavBar = () => {
   const { t } = useTranslation();
   const [navClose, setNavClose] = useState({ right: "0px" });
   const router = useRouter();
@@ -131,9 +131,9 @@ const NavBar = () => {
     <div>
       <div className="main-navbar">
         <div id="mainnav">
-          <div className="toggle-nav" onClick={openNav.bind(this)}>
+          {/* <div className="toggle-nav" onClick={openNav.bind(this)}>
             <i className="fa fa-bars sidebar-bar"></i>
-          </div>
+          </div> */}
           <ul className="nav-menu" style={navClose}>
             <li className="back-btn" onClick={closeNav.bind(this)}>
               <div className="mobile-back text-end">
@@ -157,11 +157,13 @@ const NavBar = () => {
                       :
                       <a className="nav-link" onClick={(e) => openMblNav(e)}>
                         {t(menuItem.title)}
-                        <span className="sub-arrow"></span>
+                        {(menuItem.title!='Home' ? <span className="sub-arrow"></span>:<span></span>)}
+                        {/* <span className="sub-arrow"></span> */}
                       </a>
                   }
                   {menuItem.children && !menuItem.megaMenu ? (
-                    <ul className="nav-submenu">
+                    // changed the code for the subclass of home 
+                    <ul   className={` ${menuItem.title=='Home'? "" : "nav-submenu"}`}>
                       {menuItem.children.map((childrenItem, index) => {
                         return (
                           <li

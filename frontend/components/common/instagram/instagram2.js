@@ -4,6 +4,7 @@ import { Row, Col, Container } from "reactstrap";
 import { useQuery } from "@apollo/client";
 import { gql } from '@apollo/client';
 import { Slider5 } from "../../../services/script";
+import LogoImage from "../../headers/common/logo";
 
 const GET_PRODUCTS = gql`
   query instagram($type: String!) {
@@ -24,7 +25,8 @@ const Instagram = ({ type }) => {
     <Container>
       <Row>
         <Col md="12">
-          <h2 className="title-borderless"># instagram</h2>
+          <h2 className="title-borderless">#partners</h2>
+          {/* <img  src="./assets/images/icon/kocartlogo.jpg"/> */}
           <Slider {...Slider5} className="slide-5 no-arrow slick-instagram">
             {data &&
               data.instagram.map((data, i) => (
