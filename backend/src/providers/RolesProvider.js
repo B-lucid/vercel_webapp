@@ -3,7 +3,7 @@ import React, { useContext, useState } from "react";
 const RolesContext = React.createContext();
 
 function RolesProvider({ children }) {
-  const [isAdmin, setIsAdmin] = useState(false); // set if it's admin or vendor
+  const [isAdmin, setIsAdmin] = useState(true); // set if it's admin or vendor
 
   return (
     <RolesContext.Provider value={{ isAdmin, setIsAdmin }}>

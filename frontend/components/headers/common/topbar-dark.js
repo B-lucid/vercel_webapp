@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 const TopBarDark = ({ topClass, fluid }) => {
   const router = useRouter();
   const firebaseLogout = () => {
-    localStorage.setItem('user', false)
+    localStorage.setItem("user", false);
     router.push("/page/account/login-auth");
   };
   return (
@@ -18,8 +18,8 @@ const TopBarDark = ({ topClass, fluid }) => {
               <ul>
                 <li>Welcome to Our store Multikart</li>
                 <li>
-                  <i className="fa fa-phone text-white" aria-hidden="true"></i>Call Us: 123
-                  - 456 - 7890
+                  <i className="fa fa-phone text-white" aria-hidden="true"></i>
+                  Call Us: 123 - 456 - 7890
                 </li>
               </ul>
             </div>
@@ -42,7 +42,7 @@ const TopBarDark = ({ topClass, fluid }) => {
                     </Link>
                   </li>
                   <li>
-                    <Link href={`/page/account/register`}>
+                    <Link href={`/page/account/user/register`}>
                       <a>Register</a>
                     </Link>
                   </li>

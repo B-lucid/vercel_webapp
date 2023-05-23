@@ -7,15 +7,15 @@ import LoginLayout from "../../../layouts/login";
 const LOGIN_ROLES = [
   {
     label: "User",
-    link: "login/user",
+    link: "/page/account/user/login",
   },
   {
     label: "Vendor",
-    link: "login/vendor",
+    link: "/page/account/vendor/login",
   },
   {
     label: "Admin",
-    link: "login/admin",
+    link: "/page/account/admin/login",
   },
 ];
 

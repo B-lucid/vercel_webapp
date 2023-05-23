@@ -1,16 +1,20 @@
 import React, { useState } from "react";
-import CommonLayout from "../../../components/shop/common-layout";
+import CommonLayout from "../../../../components/shop/common-layout";
 import { Container, Row, Form, Label, Col } from "reactstrap";
-import Input from "../../../components/common/Input";
+import Input from "../../../../components/common/Input";
 import { useForm } from "react-hook-form";
-import Select from "../../../components/common/Select";
+import Select from "../../../../components/common/Select";
 
 const Register = () => {
   const {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      gender: "",
+    },
+  });
 
   // define the onSubmit event handler function for the form
   const onSubmit = (data) => {
@@ -111,10 +115,9 @@ const Register = () => {
                         type="select"
                         id="gender"
                         className="gender-class"
-                        placeholder="Select"
-                        bsSize="lg"
+                        placeholder="Gender"
                         name="gender"
-                        {...register("gender")}
+                        register={register}
                         validationOptions={{
                           required: "Please enter your gender",
                           minLength: {

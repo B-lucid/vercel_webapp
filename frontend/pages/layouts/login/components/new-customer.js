@@ -1,4 +1,7 @@
+import Link from "next/link";
 import React from "react";
+
+const NEW_CUSTOMER_ROUTE = "/page/account/user/register";
 
 function NewCustomer() {
   return (
@@ -11,9 +14,9 @@ function NewCustomer() {
           easy. It allows you to be able to order from our shop. To start
           shopping click register.
         </p>
-        <a href="#" className="btn btn-solid">
-          Create an Account
-        </a>
+        <Link href={NEW_CUSTOMER_ROUTE}>
+          <button className="btn btn-solid">Create an Account</button>
+        </Link>
       </div>
     </>
   );

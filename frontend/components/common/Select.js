@@ -26,7 +26,9 @@ function Select({
         {...(register ? { ...register(name, validationOptions) } : {})}
       >
         {options.map((option) => (
-          <option key={option}>{option}</option>
+          <option key={option} value={option}>
+            {option}
+          </option>
         ))}
       </select>
       {error && <p className="text-danger">{error}</p>}
