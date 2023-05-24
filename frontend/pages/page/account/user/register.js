@@ -4,6 +4,16 @@ import { Container, Row, Form, Label, Col } from "reactstrap";
 import Input from "../../../../components/common/Input";
 import { useForm } from "react-hook-form";
 import Select from "../../../../components/common/Select";
+import {
+  countryValidation,
+  dateValidation,
+  emailValidation,
+  fullNameValidation,
+  genderValidation,
+  passwordValidation,
+  phoneNumberValidation,
+  referralCodeValidation,
+} from "../../../../helpers/validation";
 
 const Register = () => {
   const {
@@ -25,6 +35,7 @@ const Register = () => {
     console.log("Date of Birth:", data.dateOfBirth);
     console.log("Gender:", data.gender);
     console.log("Country:", data.country);
+    console.log("Password:", data.password);
     console.log("Referral Code:", data.referralCode);
   };
 
@@ -47,9 +58,7 @@ const Register = () => {
                         id="fullName"
                         placeholder="Full Name"
                         register={register}
-                        validationOptions={{
-                          required: "Please enter your Full Name",
-                        }}
+                        validationOptions={fullNameValidation}
                         error={errors?.fullName?.message}
                       />
                     </Col>
@@ -62,13 +71,7 @@ const Register = () => {
                         id="email"
                         placeholder="Email"
                         register={register}
-                        validationOptions={{
-                          required: "Please enter your email address",
-                          pattern: {
-                            value: /^[\w.%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                            message: "Please enter a valid email address",
-                          },
-                        }}
+                        validationOptions={emailValidation}
                         error={errors?.email?.message}
                       />
                     </Col>
@@ -83,13 +86,7 @@ const Register = () => {
                         id="phone"
                         placeholder="Phone"
                         register={register}
-                        validationOptions={{
-                          required: "Please enter your phone number",
-                          pattern: {
-                            value: /^[0-9]{10}$/,
-                            message: "Please enter a valid phone number",
-                          },
-                        }}
+                        validationOptions={phoneNumberValidation}
                         error={errors?.phone?.message}
                       />
                     </Col>
@@ -101,10 +98,7 @@ const Register = () => {
                         id="dateOfBirth"
                         placeholder="Date of Birth"
                         register={register}
-                        validationOptions={{
-                          required: "Please enter your date of birth",
-                          validate: (value) => Date.parse(value) !== NaN,
-                        }}
+                        validationOptions={dateValidation}
                         error={errors?.dateOfBirth?.message}
                       />
                     </Col>
@@ -118,13 +112,7 @@ const Register = () => {
                         placeholder="Gender"
                         name="gender"
                         register={register}
-                        validationOptions={{
-                          required: "Please enter your gender",
-                          minLength: {
-                            value: 4,
-                            message: "Please enter a valid gender",
-                          },
-                        }}
+                        validationOptions={genderValidation}
                         error={errors?.gender?.message}
                       />
                     </Col>
@@ -137,13 +125,7 @@ const Register = () => {
                         id="country"
                         placeholder="Country"
                         register={register}
-                        validationOptions={{
-                          required: "Please enter your country",
-                          minLength: {
-                            value: 3,
-                            message: "Please enter a valid country name",
-                          },
-                        }}
+                        validationOptions={countryValidation}
                         error={errors?.country?.message}
                       />
                     </Col>
@@ -158,9 +140,7 @@ const Register = () => {
                         id="referralCode"
                         placeholder="Referral Code"
                         register={register}
-                        validationOptions={{
-                          required: false,
-                        }}
+                        validationOptions={referralCodeValidation}
                         error={errors?.referralCode?.message}
                       />
                     </Col>
@@ -173,13 +153,7 @@ const Register = () => {
                         id="password"
                         placeholder="Enter your password"
                         register={register}
-                        validationOptions={{
-                          required: "Please enter your password",
-                          minLength: {
-                            value: 8,
-                            message: "Password must be more than 8 character",
-                          },
-                        }}
+                        validationOptions={passwordValidation}
                         error={errors?.password?.message}
                       />
                     </Col>

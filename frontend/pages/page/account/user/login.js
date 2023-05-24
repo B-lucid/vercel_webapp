@@ -4,6 +4,10 @@ import { useForm } from "react-hook-form";
 import Input from "../../../../components/common/Input";
 import NewCustomer from "../../../layouts/login/components/new-customer";
 import LoginLayout from "../../../layouts/login";
+import {
+  emailOrPhoneValidation,
+  passwordValidation,
+} from "../../../../helpers/validation";
 
 const UserLogin = () => {
   const {
@@ -37,15 +41,7 @@ const UserLogin = () => {
                   placeholder="Enter your email address or phone number"
                   register={register}
                   name="emailOrNumber"
-                  validationOptions={{
-                    required: "Please enter your email address or phone number",
-                    pattern: {
-                      value:
-                        /^([\w.%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|[0-9]{10})$/,
-                      message:
-                        "Please enter a valid email address or phone number",
-                    },
-                  }}
+                  validationOptions={emailOrPhoneValidation}
                   error={errors?.emailOrNumber?.message}
                 />
               </div>
@@ -57,13 +53,7 @@ const UserLogin = () => {
                   placeholder="Enter your password"
                   register={register}
                   name="password"
-                  validationOptions={{
-                    required: "Please enter your password",
-                    minLength: {
-                      value: 8,
-                      message: "Password must be more than 8 character",
-                    },
-                  }}
+                  validationOptions={passwordValidation}
                   error={errors?.password?.message}
                 />
               </div>

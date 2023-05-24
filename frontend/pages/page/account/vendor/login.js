@@ -4,6 +4,10 @@ import { useForm } from "react-hook-form";
 import Input from "../../../../components/common/Input";
 import NewCustomer from "../../../layouts/login/components/new-customer";
 import LoginLayout from "../../../layouts/login";
+import {
+  emailValidation,
+  passwordValidation,
+} from "../../../../helpers/validation";
 
 const VendorLogin = () => {
   const {
@@ -34,13 +38,7 @@ const VendorLogin = () => {
                   placeholder="Enter your email address"
                   register={register}
                   name="email"
-                  validationOptions={{
-                    required: "Please enter your email address",
-                    pattern: {
-                      value: /^[\w.%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                      message: "Please enter a valid email address",
-                    },
-                  }}
+                  validationOptions={emailValidation}
                   error={errors?.email?.message}
                 />
               </div>
@@ -52,13 +50,7 @@ const VendorLogin = () => {
                   placeholder="Enter your password"
                   register={register}
                   name="password"
-                  validationOptions={{
-                    required: "Please enter your password",
-                    minLength: {
-                      value: 8,
-                      message: "Password must be more than 8 character",
-                    },
-                  }}
+                  validationOptions={passwordValidation}
                   error={errors?.password?.message}
                 />
               </div>
